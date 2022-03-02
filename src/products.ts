@@ -22,7 +22,11 @@ const products = async (req: any, res: any): Promise<void> => {
     const items: Item[] = data.results.map((item: any) => ({
       id: item.id,
       title: item.title,
-      price: item.price,
+      price: {
+        currency: item.currency_id,
+        amount: item.price,
+        decimals: 2,
+      },
       picture: item.thumbnail,
       condition: item.condition,
       free_shipping: item.shipping.free_shipping,
