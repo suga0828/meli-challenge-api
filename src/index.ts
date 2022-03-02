@@ -7,9 +7,6 @@ import products from './products';
 const app = express()
 const port = process.env.PORT || 3000
 
-app.get('/api/items/:id', product);
-app.get('/api/items', products);
-
 const whitelist = ["http://localhost:3000"]
 const corsOptions = {
   origin: (origin: any, callback: any) => {
@@ -24,6 +21,9 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 app.use(express.json());
+
+app.get('/api/items/:id', product);
+app.get('/api/items', products);
 
 app.listen(port, () => {
   console.log(`meli-challenge-api app listening on port ${port}`)
