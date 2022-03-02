@@ -2,11 +2,11 @@
   "name": "meli-challenge-server",
   "version": "1.0.0",
   "description": "Meli challenge backend",
-  "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "prestart": "npm run build",
-    "start": "node .",
+    "start": "node dist/index.js",
+    "postinstall": "tsc",
+    "watch-node": "nodemon dist/index.js",
+    "watch-ts": "tsc -w",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
@@ -24,5 +24,8 @@
     "supertest": "^6.2.2",
     "ts-jest": "^27.1.3",
     "typescript": "^4.5.5"
+  },
+  "engines": {
+    "node": "12.16.2"
   }
 }
