@@ -33,6 +33,7 @@ const product = async (req: any, res: any): Promise<void> => {
       free_shipping: el.shipping.free_shipping,
       sold_quantity: el.sold_quantity,
       description: (description as Description).plain_text,
+      address: el.seller_address.state.name,
     } 
 
     console.log(`getting product with id: ${id}`);

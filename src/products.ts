@@ -32,6 +32,8 @@ const products = async (req: any, res: any): Promise<void> => {
       free_shipping: item.shipping.free_shipping,
       sold_quantity: item.sold_quantity,
       description: item.description,
+      // needed for design
+      address: item.address.state_name,
     }));
 
     const response: ItemsResponse = {
