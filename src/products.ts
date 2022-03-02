@@ -17,7 +17,7 @@ const products = async (req: any, res: any): Promise<void> => {
     const { data }: { data: MeliProducts } = await axios.get(ITEMS_PATH(q));
 
     
-    const categories: string[] = data.filters.find(({ id }) => id === 'category').values.map(({ name }) => name);
+    const categories: string[] = data.filters.find(({ id }) => id === 'category').values[0].path_from_root.map(({ name }) => name);
     
     const items: Item[] = data.results.map((item: any) => ({
       id: item.id,

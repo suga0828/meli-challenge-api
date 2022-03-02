@@ -6,8 +6,9 @@ export interface MeliProducts {
   filters: {
     id: string;
     values: {
-      name: string }[];
-    }[]; 
+      path_from_root: { id: string; name: string }[] 
+    }[];
+  }[]; 
 }
 
 export interface ItemsResponse {
