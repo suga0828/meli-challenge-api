@@ -11,6 +11,6 @@ app.get('/api/items', products);
 
 app.use(express.json());
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`meli-challenge-api app listening on port ${port}`)
 })
