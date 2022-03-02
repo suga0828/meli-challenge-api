@@ -4,13 +4,13 @@ import product from './product';
 import products from './products';
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.get('/api/items/:id', product);
 app.get('/api/items', products);
 
 app.use(express.json());
 
-app.listen(process.env.PORT || port, () => {
+app.listen(port, () => {
   console.log(`meli-challenge-api app listening on port ${port}`)
 })
