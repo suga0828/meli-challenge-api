@@ -7,7 +7,7 @@ import products from './products';
 const app = express()
 const port = process.env.PORT || 3001
 
-const whitelist = ["http://localhost:3000", "https://meli-challenge.vercel.app/"]
+const whitelist = ["http://localhost:3000", "https://suga0828-meli-challenge.vercel.app/"]
 const corsOptions = {
   origin: (origin: any, callback: any) => {
     if (!origin || whitelist.indexOf(origin) !== -1) {
