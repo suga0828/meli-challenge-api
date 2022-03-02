@@ -5,9 +5,9 @@ import product from './product';
 import products from './products';
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
-const whitelist = ["http://localhost:3000"]
+const whitelist = ["http://localhost:3001"]
 const corsOptions = {
   origin: (origin: any, callback: any) => {
     if (!origin || whitelist.indexOf(origin) !== -1) {
