@@ -35,6 +35,7 @@ const product = async (req: any, res: any): Promise<void> => {
       description: (description as Description).plain_text,
     } 
 
+    console.log(`getting product with id: ${id}`);
     res.json({ author, item});
   } catch (error) {
     res.status(500).json(error);

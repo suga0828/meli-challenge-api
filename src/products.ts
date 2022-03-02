@@ -36,6 +36,7 @@ const products = async (req: any, res: any): Promise<void> => {
       items,
     };
 
+    console.log(`getting products bye query: ${q}`);
     res.json(response);
   } catch (error) {
     res.status(500).json(error);
