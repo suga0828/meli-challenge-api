@@ -11,7 +11,7 @@ const ITEM_DESCRIPTION_PATH = (id: string) => `https://api.mercadolibre.com/item
 const product = async (req: any, res: any): Promise<void> => {
   const { id } = req.params;
   const author: Author = getAuthor(req.headers);
-
+console.log('¿holi')
   try {
     const data = await Promise.all([
       axios.get(ITEM_PATH(id)),
@@ -37,10 +37,10 @@ const product = async (req: any, res: any): Promise<void> => {
     } 
 
     console.log(`getting product with id: ${id}`);
-    res.json({ author, item});
+    return res.status(200).json({ author, item});
   } catch (error) {
-    res.status(500).json(error);
+    return res.status(500).json(error);
   }
 };
 
-export default product; 
+export default product;
