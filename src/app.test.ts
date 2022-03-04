@@ -6,8 +6,9 @@ import app from './app';
 import { Item, ItemResponse } from './definitions/product.types';
 import { MeliProducts } from './definitions/products.types';
 
+const NAME = 'name';
 jest.mock('./utils/author.util', () => ({
-  getAuthor: jest.fn(() => ({ name: 'test', lastname: 'test' }))
+  getAuthor: jest.fn(({ name, lastname }) => ({ name, lastname }))
 }))
 
 const ID = 'id';
@@ -28,10 +29,11 @@ describe('app', () => {
       jest.clearAllMocks();
       jest.spyOn(axios, 'get').mockReturnValue(Promise.resolve({ data: MOCKED_ITEM }));
   
-      const response = await request(app).get(`/api/items/${ID}`);
+      const response = await request(app).get(`/api/items/${ID}`).set('name', NAME);
   
       expect(response.statusCode).toBe(200);
       expect((response.body as ItemResponse).item.id).toBe(ID);
+      expect((response.body as ItemResponse).author.name).toBe(NAME);
     })
     
     xtest('should return error on error', () => {
@@ -52,10 +54,10 @@ describe('app', () => {
       jest.clearAllMocks();
       jest.spyOn(axios, 'get').mockReturnValue(Promise.resolve({ data: MOCKED_ITEMS }));
       
-      const response = await request(app).get(`/api/items?q=${Q}`);
+      const response = await request(app).get(`/api/items?q=${Q}`).set('name', NAME);
       
       expect(response.statusCode).toBe(200);
-      expect((response.body as ItemResponse).author.name).toBe('test');
+      expect((response.body as ItemResponse).author.name).toBe(NAME);
     })
   })
 })

@@ -11,7 +11,7 @@ const ITEM_DESCRIPTION_PATH = (id: string) => `https://api.mercadolibre.com/item
 const product = async (req: any, res: any): Promise<void> => {
   const { id } = req.params;
   const author: Author = getAuthor(req.headers);
-console.log('¿holi')
+
   try {
     const data = await Promise.all([
       axios.get(ITEM_PATH(id)),
