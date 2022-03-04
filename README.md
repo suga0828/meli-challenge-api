@@ -6,7 +6,7 @@ Wrapper of public MeLi API.
 
 ```
   npm install
-  npm dev
+  npm run dev
 ```
 
 ### Test:
