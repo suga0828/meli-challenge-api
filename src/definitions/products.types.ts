@@ -1,14 +1,14 @@
-import { Author } from "./author.types";
-import { Item } from "./product.types";
+import { Author } from './author.types';
+import { Item } from './product.types';
 
 export interface MeliProducts {
   results: any[];
   filters: {
     id: string;
     values: {
-      path_from_root: { id: string; name: string }[] 
+      path_from_root: { id: string; name: string }[];
     }[];
-  }[]; 
+  }[];
 }
 
 export interface ItemsResponse {

@@ -5,8 +5,8 @@ import { Item } from './definitions/product.types';
 import { MeliProducts, ItemsResponse } from './definitions/products.types';
 import { getAuthor } from './utils/author.util';
 
-
-const ITEMS_PATH = (query: string) => `https://api.mercadolibre.com/sites/MLA/search?q=${query}`;
+const ITEMS_PATH = (query: string) =>
+  `https://api.mercadolibre.com/sites/MLA/search?q=${query}`;
 
 const products = async (req: any, res: any): Promise<void> => {
   const { q } = req.query;
@@ -16,7 +16,9 @@ const products = async (req: any, res: any): Promise<void> => {
   try {
     const { data }: { data: MeliProducts } = await axios.get(ITEMS_PATH(q));
 
-    const categories: string[] = data.filters.find(({ id }) => id === 'category').values[0].path_from_root.map(({ name }) => name);
+    const categories: string[] = data.filters
+      .find(({ id }) => id === 'category')
+      .values[0].path_from_root.map(({ name }) => name);
 
     const items: Item[] = data.results.map((item: any) => ({
       id: item.id,

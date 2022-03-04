@@ -6,7 +6,8 @@ import { Item } from './definitions/product.types';
 import { getAuthor } from './utils/author.util';
 
 const ITEM_PATH = (id: string) => `https://api.mercadolibre.com/items/${id}`;
-const ITEM_DESCRIPTION_PATH = (id: string) => `https://api.mercadolibre.com/items/${id}/description`;
+const ITEM_DESCRIPTION_PATH = (id: string) =>
+  `https://api.mercadolibre.com/items/${id}/description`;
 
 const product = async (req: any, res: any): Promise<void> => {
   const { id } = req.params;
@@ -34,10 +35,10 @@ const product = async (req: any, res: any): Promise<void> => {
       sold_quantity: el.sold_quantity,
       description: (description as Description).plain_text,
       address: el.seller_address.state.name,
-    } 
+    };
 
     console.log(`getting product with id: ${id}`);
-    return res.status(200).json({ author, item});
+    return res.status(200).json({ author, item });
   } catch (error) {
     return res.status(500).json(error);
   }

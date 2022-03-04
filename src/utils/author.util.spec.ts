@@ -1,4 +1,4 @@
-import { getAuthor } from "./author.util";
+import { getAuthor } from './author.util';
 
 describe('getAuthor', () => {
   it('should return author from input', () => {
@@ -13,5 +13,5 @@ describe('getAuthor', () => {
       name: headers.name,
       lastname: headers.lastname,
     });
-  })
-})
+  });
+});
